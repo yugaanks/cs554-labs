@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>chat</title>
+	
+</head>
+<body>
+	<ul id="messages"></ul>
+    <form class="form-inline">
+	    <div class="form-group">
+	        <label for="name">Name</label>
+	        <input type="text" class="form-control"  id="name" placeholder="Enter Name">
+	    </div>
+	    <div class="form-group">
+	        <label for="key">Search</label>
+	        <input class="form-control" id="key" placeholder="Enter Keyword">
+	    </div>
+	    <div class="form-group">
+	        <label for="m">Message</label>
+	        <input class="form-control" id="m" placeholder="Enter Message">
+	    </div>
+	    <button type="submit" class="btn btn-default">Send</button>
+    </form>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+		const nickname = "yugaank";
+		const socket = io('http://localhost:3000/chat');
+		console.log(socket);
+		const messages = $("#messages");
+        const nameInput = $("#name");
+        const keyInput = $("#key"); 
+        const messageInput = $("#m"); 
+		const theForm = $("form");
+		const roomSelector = $("#room-selector");
+		let currentRoomId = "";
+		socket.on("joined-room", (roomId) => {
+			currentRoomId = roomId;
+			roomSelector.val(roomId);
+		});
+		socket.on('request-credentials', () => {
+			//console.log("request-credentials?");
+			socket.emit('setup', { nickname: nickname });
+		});
+		socket.on('receive-message', function (msg) {
+			var append = '<li>';
+			append += '<p>name: '+msg.name+'</p>';
+			append += '<p>message: '+msg.message+'</p>';
+			if(msg.img.hits.length==0){
+				append += '<p>no image found</p>';
+			}else{
+				var count=0;
+				for(var i=0;i<msg.img.hits.length;i++){
+					if(count>=5) break;
+					append += '<img alt="result" src="'+msg.img.hits[i].previewURL+'">';
+					count++;
+				}
+			}
+			append+='</li>';
+			messages.append(append);
+		});
+		theForm.submit(function () {
+			let message = {
+                name: nameInput.val(),
+                key: keyInput.val(),
+                message: messageInput.val(),
+				room: currentRoomId
+			};
+			socket.emit('send-message', message);
+            keyInput.val('');
+			messageInput.val('');
+			$("#name").attr("disabled",1);
+			
+			return false;
+		});
+		roomSelector.on("change", () => {
+			let newRoom = roomSelector.val();
+			if (newRoom === currentRoomId) {
+				return;
+			}
+			messages.empty();
+			socket.emit("join-room", {
+				newRoom: newRoom,
+				previousRoom: currentRoomId
+			});
+		})
+		socket.emit("join-room", {
+			newRoom: "general",
+			previousRoom: currentRoomId
+		});
+	</script>
+</body>
+</html>

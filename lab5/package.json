@@ -1,0 +1,24 @@
+{
+	"name": "dummy",
+	"version": "1.0.0",
+	"description": "This is a dummy description",
+	"main": "",
+	"dependencies": {
+		"bluebird": "^3.5.1",
+		"express": "^4.16.2",
+		"flat": "^4.0.0",
+		"redis": "^2.8.0"
+	},
+	"devDependencies": {},
+	"repository": {
+		"type": "",
+		"url": ""
+	},
+	"scripts": {
+		"start": "node app.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "MIT",
+	"readme": "This is a dummy readme"
+}

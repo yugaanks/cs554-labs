@@ -1,0 +1,43 @@
+@import "variables";
+
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    background: $body-background;
+    color: $brand-primary;
+    font-family:$primary-font-style;
+    font-size: $primary-font-style;
+    background-clip: border-box;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: $base-font-size + $heading-scale * (6 - $i);
+    font-style: $title-font-style;
+    }
+}
+
+nav {
+  text-align: center;
+
+  a {
+      color: $mygrey;
+      font-size: $primary-font-size;
+  }
+  a:active {
+    color: darken($mygrey, 10%);
+  }
+
+  a:hover {
+      background-color: black;
+      color: white;
+      text-decoration: none;
+  }
+}
+
+.btn {
+  background-color:$button-color;
+  color: white;
+}

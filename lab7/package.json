@@ -1,0 +1,30 @@
+{
+	"name": "dummy",
+	"version": "1.0.0",
+	"description": "This is a dummy description",
+	"main": "",
+	"dependencies": {
+		"body-parser": "^1.18.2",
+		"express": "^4.16.2",
+		"http": "0.0.0",
+		"node-redis-pubsub": "^1.0.3",
+		"node-uuid": "^1.4.8",
+		"path": "^0.12.7",
+		"query-string": "^5.0.1",
+		"redis": "^2.8.0",
+		"socket.io": "^2.0.4",
+		"sync-request": "^4.1.0"
+	},
+	"devDependencies": {},
+	"repository": {
+		"type": "",
+		"url": ""
+	},
+	"scripts": {
+		"start": "node app.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "MIT",
+	"readme": "This is a dummy readme"
+}

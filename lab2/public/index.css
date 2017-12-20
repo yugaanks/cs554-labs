@@ -1,0 +1,50 @@
+@media screen and (min-width: 500px){
+	nav {
+		font-size: 35px;
+		width: 25%;
+		float: left;
+		display: inline;
+  		margin: 0;
+  		padding: 0;
+  		margin-right: 10px;
+	}
+	div.container {
+		float: left;
+		width: 50%;
+		margin: 0;
+  		padding: 0;
+	}
+	nav a {
+		display: block; clear: both;
+	}
+}
+@media screen and (min-width: 1600px) {
+	div.container {
+		width: 800px;
+	}
+}
+img {
+	width: 200px;
+	height: 300px;
+}
+.container {
+	position: relative;
+	display: flex;
+	flex-flow: row wrap;
+}
+article {
+	width: 100%;
+}
+
+
+@media screen and (min-width: 501px) and (max-width: 800px) {
+	article {
+		width: 50%;
+	}
+}
+
+@media screen and (min-width: 801px) {
+	article {
+		width: 33%;
+	}
+}

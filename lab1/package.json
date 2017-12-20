@@ -1,0 +1,24 @@
+{
+	"name": "cs554lab1",
+	"version": "1.0.0",
+	"description": "This is not a dummy description",
+	"main": "",
+	"dependencies": {
+		"body-parser": "^1.17.2",
+		"express": "^4.15.4",
+		"mongodb": "^2.2.31",
+		"node-uuid": "^1.4.8"
+	},
+	"devDependencies": {},
+	"repository": {
+		"type": "",
+		"url": ""
+	},
+	"scripts": {
+		"start": "node app.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "",
+	"readme": "This is a dummy readme"
+}

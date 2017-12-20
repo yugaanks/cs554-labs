@@ -1,0 +1,31 @@
+{
+  "name": "lab3",
+  "version": "1.0.0",
+  "description": "CS 554 lab 3",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "build": "gulp build"
+  },
+  "author": "xdr",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "jquery": "^3.1.1",
+    "tether": "^1.4.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "node-uuid": "^1.4.7",
+    "path": "^0.12.7",
+    "xss": "^0.2.13"
+  }
+}
